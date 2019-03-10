@@ -4,10 +4,6 @@
 import scraperwiki
 from lxml import html
 import requests
-##from lxml.html.soupparser import fromstring
-##from lxml import etree
-##from io import StringIO
-##import re
 
 
 # # Read in a page
@@ -38,7 +34,7 @@ for hdy in hdywtdt:
         dat2 = {'character': char2, 'episode info': epinfo, 'killed what': onwhat, 'kills': 0.5, 'full string': hdy}
         scraperwiki.sqlite.save(unique_keys=['full string'], data = dat2)
     else:
-        dat = {'character': char, 'episode info': epinfo, 'killed what': onwhat, 'kills': 0.5, 'full string': hdy}
+        dat = {'character': char, 'episode info': epinfo, 'killed what': onwhat, 'kills': 1, 'full string': hdy}
         scraperwiki.sqlite.save(unique_keys=['full string'], data = dat)
 
 

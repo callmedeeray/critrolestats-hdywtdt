@@ -29,13 +29,13 @@ for hdy in hdywtdt:
     onwhat = hdy[ind2+2:len(hdy)]
     if char.find(' and ') > -1:
         char1, char2 = char.split(' and ')
-        dat1 = {'character': char1, 'episode info': epinfo, 'killed what': onwhat, 'kills': 0.5, 'full string': hdy}
-        scraperwiki.sqlite.save(unique_keys=['full string'], data = dat1)
-        dat2 = {'character': char2, 'episode info': epinfo, 'killed what': onwhat, 'kills': 0.5, 'full string': hdy}
-        scraperwiki.sqlite.save(unique_keys=['full string'], data = dat2)
+        dat1 = {'character': char1, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 0.5, 'full_string': hdy}
+        scraperwiki.sqlite.save(unique_keys=['full_string'], data = dat1)
+        dat2 = {'character': char2, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 0.5, 'full_string': hdy}
+        scraperwiki.sqlite.save(unique_keys=['full_string'], data = dat2)
     else:
-        dat = {'character': char, 'episode info': epinfo, 'killed what': onwhat, 'kills': 1, 'full string': hdy}
-        scraperwiki.sqlite.save(unique_keys=['full string'], data = dat)
+        dat = {'character': char, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 1, 'full_string': hdy}
+        scraperwiki.sqlite.save(unique_keys=['full_string'], data = dat)
 
 
         

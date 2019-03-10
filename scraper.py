@@ -20,7 +20,7 @@ tree2 = html.fromstring(page2.content)
 
 hdywtdt = tree2.xpath('//ol//span/text()')
 
-
+pk = 1
 for hdy in hdywtdt:
     ind = hdy.find('(')
     char = hdy[0:ind-1]
@@ -29,13 +29,16 @@ for hdy in hdywtdt:
     onwhat = hdy[ind2+2:len(hdy)]
     if char.find(' and ') > -1:
         char1, char2 = char.split(' and ')
-        dat1 = {'character': char1, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 0.5, 'full_string': hdy}
-        scraperwiki.sqlite.save(unique_keys=['full_string'], data = dat1)
-        dat2 = {'character': char2, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 0.5, 'full_string': hdy}
-        scraperwiki.sqlite.save(unique_keys=['full_string'], data = dat2)
+        dat1 = {'character': char1, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 0.5, 'full_string': hdy,'pk': pk}
+        pk += 1
+        dat2 = {'character': char2, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 0.5, 'full_string': hdy,'pk': pk}
+        scraperwiki.sqlite.save(unique_keys=['pk'], data = dat1)
+        scraperwiki.sqlite.save(unique_keys=['pk'], data = dat2)
+        pk += 1
     else:
-        dat = {'character': char, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 1.0, 'full_string': hdy}
-        scraperwiki.sqlite.save(unique_keys=['full_string'], data = dat)
+        dat = {'character': char, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 1.0, 'full_string': hdy,'pk': pk}
+        scraperwiki.sqlite.save(unique_keys=['pk'], data = dat)
+        pk += 1
 
 
         

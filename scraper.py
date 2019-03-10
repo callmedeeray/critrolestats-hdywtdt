@@ -34,7 +34,7 @@ for hdy in hdywtdt:
         dat2 = {'character': char2, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 0.5, 'full_string': hdy}
         scraperwiki.sqlite.save(unique_keys=['full_string'], data = dat2)
     else:
-        dat = {'character': char, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 1, 'full_string': hdy}
+        dat = {'character': char, 'episode_info': epinfo, 'killed_what': onwhat, 'kills': 1.0, 'full_string': hdy}
         scraperwiki.sqlite.save(unique_keys=['full_string'], data = dat)
 
 
